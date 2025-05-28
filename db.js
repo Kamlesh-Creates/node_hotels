@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+//const mongoURL='mongodb://localhost:27017/mydb'
+const mongoURL=process.env.DB_URL;
 
-// Connect and handle success or failure
-mongoose.connect('mongodb://localhost:27017/mydb', {
+mongoose.connect(mongoURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000 // 5 seconds timeout
+  serverSelectionTimeoutMS: 5000 
 })
 .then(() => {
   console.log('✅ Initial connection successful');
@@ -13,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/mydb', {
   console.error('❌ Initial connection error:', err.message);
 });
 
-// Event listeners for ongoing connection state
+
 const db = mongoose.connection;
 
 db.on('connected', () => {
