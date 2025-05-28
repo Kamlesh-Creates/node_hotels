@@ -14,7 +14,6 @@ app.get('/web',function(req,res){
 
 })
 
-
 const menuitemroutes=require("./routes/menuroutes")
 app.use('/menu',menuitemroutes)
 
