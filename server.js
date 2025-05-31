@@ -34,7 +34,7 @@ app.use('/menu',menuitemroutes)
 
 
 const personroutes=require("./routes/personroutes")
-app.use('/person',localauthmiddelware,personroutes)
+app.use('/person',personroutes)
 
 const PORT=process.env.PORT || 3000;
 app.listen(PORT,()=>{
